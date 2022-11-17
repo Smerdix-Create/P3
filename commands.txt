@@ -1,0 +1,51 @@
+1.
+echo Hello World > file1
+cp file1 file2
+ln -s file1 file3
+ln file1 file4
+rm file1
+cat file2 //(Hello World)
+cat file3 //(cat: file3: No such file or directory)
+cat file4 //(Hello World)
+
+2.
+mv file2 life2
+mv file3 life3
+mv file4 life4
+ln -s life2 li2
+ln -s life3 li3
+ln -s life4 li4
+mkdir li
+mv li2 li/
+mv li3 li/
+mv li4 li/
+
+3.
+touch text1
+touch text2
+chmod go-rw text2 //chmod 600
+
+4.
+sudo useradd -m -G sudo -s /bin/bash vasya
+sudo passwd vasya
+
+5.* (3 пользователя: nick, vasya и nastya; каталог developer создаётся в nick)
+groupadd developer
+sudo useradd -m -G developer -s /bin/bash vasya
+sudo useradd -m -G developer -s /bin/bash nastya
+sudo usermod -a -G nick vasya
+sudo usermod -a -G nick nastya
+mkdir developer
+sudo chgrp developer developer/
+sudo chmod g+s developer/
+
+6.*
+cd developer/
+mkdir talk
+sudo chmod +t talk/
+
+7.*
+mkdir text
+cd text/
+touch file{1..3}
+chmod go-rw text/ 
